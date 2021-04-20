@@ -1,7 +1,11 @@
 https://github.com/okovtun/BV_122.git
 https://www.youtube.com/watch?v=htkSiXnrqHQ&list=PLeqyOOqxeiIMc8VmOKgzH2KDPzAhl5Gc3&index=1
 
-TODO:
+TOREAD:
+https://www.ixbt.com/cpu/x86-cpu-faq-2006.shtml
+https://www.ixbt.com/cpu/cpu-digest-2009.shtml#02
+
+DONE:
 1. Выучить теорию!!!
 2. Сколько комбинаций можно перебрать при помощи двух Байт?
 3. Сколько комбинаций можно перебрать при помощи трех Байт?
