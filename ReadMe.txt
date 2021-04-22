@@ -5,6 +5,10 @@ TOREAD:
 https://www.ixbt.com/cpu/x86-cpu-faq-2006.shtml
 https://www.ixbt.com/cpu/cpu-digest-2009.shtml#02
 
+TODO:
+Решить задачи со 2-й по 4-ю из файла: https://github.com/okovtun/BV_122/blob/master/DataTypes/VariablesTask.pdf
+В MyStat прислать исходный код программы.
+
 DONE:
 1. Выучить теорию!!!
 2. Сколько комбинаций можно перебрать при помощи двух Байт?
