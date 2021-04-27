@@ -5,11 +5,12 @@ using std::cout;
 using std::endl;;
 
 //#define TYPES
-#define DECLARATION_OF_VARIABLES
+//#define DECLARATION_OF_VARIABLES
 
 void main()
 {
 	setlocale(LC_ALL, "Russian");
+
 #ifdef TYPES
 	//cout << false << endl;
 
@@ -61,4 +62,18 @@ cout << "  signed long:" << LONG_MIN << "\t" << LONG_MAX << endl;*/
 
 #endif // DECLARATION_OF_VARIABLES
 
+	int speed = 0;
+	const int MAX_SPEED = 250;//Константы всегда называются в верхнем регистре
+
+
+	//cout << 5384 << endl;	//5384 - числовая константа типа int
+	//cout << sizeof(5384LL) << endl;
+	//cout << typeid(5384ULL).name() << endl;
+	//cout << typeid(5384.f).name() << endl;
+
+	cout << '+' << endl;	//'+' - символьная константа типа char.
+	cout << typeid('+').name() << endl;
+	cout << sizeof('+') << endl;
+	cout << sizeof("+") << endl;
+	cout << sizeof("Hello") << endl;
 }
