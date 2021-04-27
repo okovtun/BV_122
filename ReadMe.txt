@@ -4,8 +4,17 @@ https://www.youtube.com/watch?v=htkSiXnrqHQ&list=PLeqyOOqxeiIMc8VmOKgzH2KDPzAhl5
 TOREAD:
 https://www.ixbt.com/cpu/x86-cpu-faq-2006.shtml
 https://www.ixbt.com/cpu/cpu-digest-2009.shtml#02
+https://github.com/okovtun/BV_122/blob/master/DataTypes/DataTypes.pdf
 
 TODO:
+Есть дву переменные произвольного типа, которые пользователь вводит с клавиатуры.
+Ножно вывести эти две переменные на экран, после чего поменять их значения местами, 
+и вывести на экран в том же порядке, поссле замены.
+	cout << a << "\t" << b << endl;
+	//здесь меняем перемеенные местами
+	cout << a << "\t" << b << endl;
+
+DONE:
 Решить задачи со 2-й по 4-ю из файла: https://github.com/okovtun/BV_122/blob/master/DataTypes/VariablesTask.pdf
 В MyStat прислать исходный код программы.
 
