@@ -2,11 +2,21 @@ https://github.com/okovtun/BV_122.git
 https://www.youtube.com/watch?v=htkSiXnrqHQ&list=PLeqyOOqxeiIMc8VmOKgzH2KDPzAhl5Gc3&index=1
 
 TOREAD:
+http://cplusplus.com/doc/tutorial/operators/
+https://neerc.ifmo.ru/wiki/index.php?title=%D0%9F%D0%BE%D0%B1%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B5_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8
+https://tproger.ru/translations/bitwise-operations/
+
 https://www.ixbt.com/cpu/x86-cpu-faq-2006.shtml
 https://www.ixbt.com/cpu/cpu-digest-2009.shtml#02
 https://github.com/okovtun/BV_122/blob/master/DataTypes/DataTypes.pdf
 
 TODO:
+Поменять местами дву переменные без использования третьей переменной 
+И БЕЗ ИСПОЛЬЗОВАНИЯ ФУНКЦИИ swap(), 
+используя побитовые операции, и составные присваивания
+Подсказка: RAID-5.
+
+DONE:
 int i = 3;
 i = ++i + 1 + ++i * 2;
 cout << i << endl;	//Ответ

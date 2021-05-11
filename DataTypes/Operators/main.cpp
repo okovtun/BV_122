@@ -9,7 +9,10 @@ using std::endl;
 
 //#define ARITHMETICAL_OPERATORS	//Арифметические операторы
 //#define ASSIGNMENT_OPERATOR	//Оператор присваивания
-#define INCREMENT_DECREMENT		//(++/--)
+//#define INCREMENT_DECREMENT	//(++/--)
+//#define HOME_WORK
+//#define COMPAUND_ASSIGNMENTS	//Составные присваивания
+#define COMPARISON_OPERATORS	//Операторы сравнения
 
 void main()
 {
@@ -63,5 +66,32 @@ a++;
 	//		5			3			-1
 
 #endif // INCREMENT_DECREMENT
+
+#ifdef HOME_WORK
+	/*int i = 3;
+	i = ++i + 1 + ++i * 2;
+	cout << i << endl;*/
+
+	/*int i = 3;
+	i = ++i + 1 + (++i *= 2);
+	cout << i << endl;*/
+
+	int i = 3;
+	i *= i++ + 1 + (++i += 2);
+	cout << i << endl;
+#endif // HOME_WORK
+
+#ifdef COMPAUND_ASSIGNMENTS
+	int a = 2;
+	int b = 3;
+	//a = a + b;
+	a += b;
+	cout << a << endl;
+#endif // COMPAUND_ASSIGNMENTS
+
+#ifdef COMPARISON_OPERATORS
+	//cout << (!true == false) << endl;
+	cout << (false || false) << endl;
+#endif // COMPARISON_OPERATORS
 
 }
