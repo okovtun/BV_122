@@ -10,7 +10,10 @@ https://www.ixbt.com/cpu/x86-cpu-faq-2006.shtml
 https://www.ixbt.com/cpu/cpu-digest-2009.shtml#02
 https://github.com/okovtun/BV_122/blob/master/DataTypes/DataTypes.pdf
 
-TODO:
+ONLINE COMPILER
+http://cpp.sh/
+
+DONE:
 Поменять местами дву переменные без использования третьей переменной 
 И БЕЗ ИСПОЛЬЗОВАНИЯ ФУНКЦИИ swap(), 
 используя побитовые операции, и составные присваивания

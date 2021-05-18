@@ -12,7 +12,8 @@ using std::endl;
 //#define INCREMENT_DECREMENT	//(++/--)
 //#define HOME_WORK
 //#define COMPAUND_ASSIGNMENTS	//Составные присваивания
-#define COMPARISON_OPERATORS	//Операторы сравнения
+//#define COMPARISON_OPERATORS	//Операторы сравнения
+#define BITWISE_OPERATORS	//Побтовые операторы
 
 void main()
 {
@@ -93,5 +94,26 @@ a++;
 	//cout << (!true == false) << endl;
 	cout << (false || false) << endl;
 #endif // COMPARISON_OPERATORS
+
+#ifdef BITWISE_OPERATORS
+	//+-*
+	//	~ - NOT
+	//	| -  OR
+	//  & - AND
+	//  ^ - XOR
+	double a = 2;
+	double b = 3;
+	cout << a << "\t" << b << endl;
+	/*a += b;
+	b = a - b;
+	a = a - b;*/
+	/*a ^= b;
+	b ^= a;
+	a ^= b;*/
+	int buffer = a;	//buffer - это просто имя переменной
+	a = b;
+	b = buffer;
+	cout << a << "\t" << b << endl;
+#endif // BITWIZSE_OPERATORS
 
 }
