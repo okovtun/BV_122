@@ -1,0 +1,19 @@
+FOR - это цикл на заданрное число итераций.
+
+for(Counter; Condition; Expression)
+{
+	....
+	group-of-statements;
+	....
+}
+
+for(Start; Stop; Step)
+{
+	....
+	group-of-statements;
+	....
+}
+
+Counter(Start)  - в этом выражении обычно объ€вл€ют и инициализируют счетчик.
+Condition(Stop) - условие продолжени€ или завершени€ цикла.
+Expression(Step)- это выражение, которое измен€ет счетчик. i++ (i - counter)

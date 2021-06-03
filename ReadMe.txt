@@ -1,6 +1,12 @@
 https://github.com/okovtun/BV_122.git
 https://www.youtube.com/watch?v=htkSiXnrqHQ&list=PLeqyOOqxeiIMc8VmOKgzH2KDPzAhl5Gc3&index=1
 
+TODO:
+1. »спользу€ цикл for вычислить факториал числа, введенного с клавиатуры.
+	5! = 1*2*3*4*5 = 120;
+2. »спользу€ цикл for, (и Ќ≈ использу€ функцию pow()!!!) возвести число в указанную степень;
+3. ¬ывести на экран таблицу ASCII-символов, разделенных пробелами, по 16 символов в строке;
+
 TOREAD:
 http://cplusplus.com/doc/tutorial/operators/
 https://neerc.ifmo.ru/wiki/index.php?title=%D0%9F%D0%BE%D0%B1%D0%B8%D1%82%D0%BE%D0%B2%D1%8B%D0%B5_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D0%B8
