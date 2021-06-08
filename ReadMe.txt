@@ -2,6 +2,11 @@ https://github.com/okovtun/BV_122.git
 https://www.youtube.com/watch?v=htkSiXnrqHQ&list=PLeqyOOqxeiIMc8VmOKgzH2KDPzAhl5Gc3&index=1
 
 TODO:
+Используя вложенные for-ы вывести на экран:
+1. Таблицу умножения;
+2. Таблицу Пифагора;
+
+DONE:
 1. Используя цикл for вычислить факториал числа, введенного с клавиатуры.
 	5! = 1*2*3*4*5 = 120;
 2. Используя цикл for, (и НЕ используя функцию pow()!!!) возвести число в указанную степень;
