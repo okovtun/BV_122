@@ -88,8 +88,9 @@ void main()
 		{
 			for (int s = 0; s < 60; s++)
 			{
-				system("CLS");
-				cout << h << ":" << m << ":" << s << endl;
+				//system("CLS");
+				cout << h << ":" << m << ":" << s << "\r";
+				//cout << "\r";
 				Sleep(100);
 			}
 		}

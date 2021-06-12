@@ -2,6 +2,9 @@ https://github.com/okovtun/BV_122.git
 https://www.youtube.com/watch?v=htkSiXnrqHQ&list=PLeqyOOqxeiIMc8VmOKgzH2KDPzAhl5Gc3&index=1
 
 TODO:
+Вывести на экран хотябы 2 первых реугольника:https://github.com/okovtun/BD_011/blob/master/ControlStructures/Geometria1.txt
+
+DONE:
 Используя вложенные for-ы вывести на экран:
 1. Таблицу умножения;
 2. Таблицу Пифагора;
