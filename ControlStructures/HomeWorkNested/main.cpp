@@ -1,64 +1,194 @@
-#include<iostream>
-
+#include <iostream>
 using namespace std;
+using std::cout;
+using std::cin;
+using std::endl;
 
-//#define BEAUTIFUL_MULTIPLICATION
-//#define MULTIPLICATION
-#define PIFAGOR
+#define SQUARE
+#define TRIANGLE_1
+#define TRIANGLE_2
+#define TRIANGLE_2_2
+#define TRIANGLE_3
+#define TRIANGLE_4
+#define ROMB
+#define PLUSIKI_MINUSIKI
 
 void main()
 {
+	setlocale(LC_ALL, "ru");
+#ifdef SQUARE
+	int n;
+	cout << "¬ведите количество итераций: "; cin >> n;
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cout << "* ";
+		}
+		cout << endl;
+	}
+#endif // SQUARE
+
+
+
+
+#ifdef TRIANGLE_1
 	int k;
+	cout << "¬ведите количество итераций: "; cin >> k;
 
-#ifdef BEAUTIFUL_MULTIPLICATION
-	for (int i = 0; i < 97; i++)
+	for (int i = 0; i < k; i++)
 	{
-		cout << char(219);
-	}
-	putchar('\n');
-	for (int i = 1; i < 11; i++)
-	{
-		cout << char(219) << '\t';
-		for (int j = 1; j < 11; j++)
+		for (int j = 0; j < i + 1; j++)
 		{
-			k = i * j;
-			cout << j << "*" << i << "=" << k;
-			if (k < 100)
-				cout << '\t';
+			cout << "* ";
+		}
+		cout << '\n';
+	}
+
+#endif // TRIANGLE_1
+
+
+
+#ifdef TRIANGLE_2
+	int z;
+	cout << "¬ведите количество итераций: "; cin >> z;
+
+	for (int i = 0; i < z; i++)
+	{
+		for (int j = 0; j < z - i; j++)
+		{
+
+			cout << "* ";
+		}
+		cout << '\n';
+	}
+#endif // TRIANGLE_2
+
+#ifdef TRIANGLE_2_2
+	int q;
+	cout << "¬ведите количество итераций: "; cin >> q;
+	for (int i = 0; i < q; i++)
+	{
+		for (int j = i; j < q; j++)
+		{
+			cout << "* ";
+		} cout << endl;
+	}
+#endif // TRIANGLE_2_2
+
+
+
+#ifdef TRIANGLE_3
+	int a;
+	cout << "¬ведите количество итераций: "; cin >> a;
+
+	for (int i = 0; i < a; i++) // вывод строк
+	{
+		for (int j = 0; j < i; j++) // вывод пробелов
+		{
+			cout << "  ";
+		}
+		for (int k = i; k < a; k++) // вывод звездочек
+		{
+			cout << "* ";
+		}
+
+
+		cout << '\n';
+	}
+#endif // TRIANGLE_3
+
+
+#ifdef TRIANGLE_4
+	int v;
+	cout << "¬ведите количество итераций: "; cin >> v;
+
+	for (int i = 0; i < v; i++) // вывод строк
+	{
+		for (int j = i; j < a - 1; j++) // вывод пробелов
+		{
+			cout << "  ";
+		}
+		for (int k = 0; k < i + 1; k++) // вывод звездочек
+		{
+			cout << "* ";
+		}
+		cout << '\n';
+	}
+
+#endif // TRIANGLE_4
+
+
+	//int c;
+	//
+	//cout << "¬ведите количесвто итераций: "; cin >> c;
+	//
+	//for (int i = 0; i < c; i++)
+	//{
+	//	for (int j = 0; j < c; j++)
+	//	{
+	//		cout << "* ";
+	//	} cout << endl;
+	//}
+
+
+#ifdef ROMB
+	int l;
+	cout << "¬ведите количество итераций: "; cin >> l;
+
+	for (int i = 0; i < l; i++) // вывод строк
+	{
+		for (int j = i; j < l; j++) // вывод пробелов
+		{
+			cout << " ";
+		}
+		for (int k = 0; k < i; k++) // вывод звездочек
+		{
+			cout << "* ";
+		}
+		cout << endl;
+	}
+	for (int i = 0; i < l; i++) // вывод строк
+	{
+		for (int j = 0; j < i; j++) // вывод пробелов
+		{
+			cout << " ";
+		}
+		for (int k = i; k < l; k++) // вывод звездочек
+		{
+			cout << "* ";
+		}
+
+		cout << '\n';
+	}
+
+#endif // ROMB
+
+
+
+#ifdef PLUSIKI_MINUSIKI
+	int m;
+	cout << "¬ведите количество итераций: "; cin >> m;
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (j % 2)
+				cout << "- ";
 			else
-				cout << "  ";
-		}
-		cout << '\t' << char(219);
-		putchar('\n');
+				cout << "+ ";
+		} cout << endl;
 	}
-	for (int i = 0; i < 97; i++)
-	{
-		cout << char(219);
-	}
-#endif // BEAUTIFUL_MULTIPLICATION
+#endif // PLUSIKI_MINUSIKI
 
-#ifdef MULTIPLICATION
-	for (int i = 1; i < 11; i++)
-	{
-		for (int j = 1; j < 11; j++)
-		{
-			k = i * j;
-			cout << j << "*" << i << "=" << k << "\t";
-		}
-		putchar('\n');
-	}
-#endif // MULTIPLICATION
 
-#ifdef PIFAGOR
-	for (int i = 1; i < 11; i++)
-	{
-		for (int j = 1; j < 11; j++)
-		{
-			k = i * j;
-			cout << k << '\t';
-		}
-		printf("\n");
-	}
-#endif // PIFAGOR
+
+
+
+
+
+
 
 }
+

@@ -1,91 +1,150 @@
-#include<iostream>
-
+#include <iostream>
 using namespace std;
-
-using std::cout;
-using std::cin;
-using std::endl;
+#define tab "\t"
+//#define SQUARE1
+//#define TRIANGLE1
+//#define TRIANGLE2
+//#define TRIANGLE3
+#define THOMBUS
 
 void main()
 {
 	setlocale(LC_ALL, "Russian");
 	int n;
-	cout << "Read1: "; cin >> n;
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			cout << "*\n";
-			cout << "**\n";
-			cout << "***\n";
-			cout << "****\n";
-			cout << "*****" << endl;
-		}
-		cout << endl;
-	}
+	int j;
+	int i;
 
-	int n1;
-	cout << "Read2: "; cin >> n1;
-	for (int i = 0; i < n1; i++)
+	cout << "¬ведите размер фигуры: "; cin >> n;
+#ifdef SQUARE1 
+
+	for (int i = 0;
+		i < n;
+		i++)
 	{
-		for (int j = 0; j < n1; j++)
+		for (int j = 0;
+			j < n;
+			j++)
+
 		{
-			cout << "*****\n";
-			cout << "****\n";
-			cout << "***\n";
-			cout << "**\n";
 			cout << "*";
 		}
+
+		cout << endl;
+	}
+#endif // SQUARE1
+#ifdef TRIANGLE1 
+
+	for (int i = 0;
+		i < n;
+		i++)
+	{
+		for (int j = 0;
+			j <= i;
+			j++)
+
+		{
+			cout << "*";
+		}
+
+		cout << endl;
+	}
+#endif // TRIANGLE1
+
+#ifdef TRIANGLE2 
+
+	for (int i = 0;
+		i < n;
+		i++)
+	{
+		for (int j = i;
+			j < n;
+			j++)
+
+		{
+			cout << "*";
+		}
+
+		cout << endl;
+	}
+#endif // TRIANGLE2  
+#ifdef TRIANGLE3 
+
+
+	for (int i = 0;
+		i < n;
+		i++)
+	{
+		for (int j = 0; j < i; j++)
+		{
+			cout << " ";
+		}
+		for (int j = i;
+			j < n;
+			j++)
+		{
+			cout << "*";
+		}
+
+		cout << endl;
+	}
+#endif // TRIANGLE3 
+#ifdef TRIANGLE4 
+
+
+	for (int i = 0;
+		i < n;
+		i++)
+	{
+		for (int j = i; j < n; j++)
+		{
+			cout << " ";
+		}
+		for (int j = 0;
+			j <= i;
+			j++)
+		{
+			cout << "*";
+		}
+
+		cout << endl;
+	}
+#endif // TRIANGLE4 
+#ifdef THOMBUS 
+
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = i; j < n; j++)
+		{
+			cout << " ";
+		}
+		for (int j = 0; j < i; j++)
+		{
+			cout << "* ";
+		}
+
 		cout << endl;
 	}
 
-	int n2;
-	cout << "Read: "; cin >> n2;
-	for (int i = 0; i < n2; i++)
+	for (int i = 0;
+		i < n;
+		i++)
 	{
-		for (int j = 0; j < n2; j++)
+		for (int j = 0; j < i; j++)
 		{
-			cout << "*****\n";
-			cout << " ****\n";
-			cout << "  ***\n";
-			cout << "   **\n";
-			cout << "    *";
+			cout << " ";
 		}
+		for (int j = i;
+			j < n;
+			j++)
+		{
+			cout << "* ";
+		}
+
 		cout << endl;
 	}
 
-	int n3;
-	cout << "Read: "; cin >> n3;
-	for (int i = 0; i < n3; i++)
-	{
-		for (int j = 0; j < n3; j++)
-		{
-			cout << "    *\n";
-			cout << "   **\n";
-			cout << "  ***\n";
-			cout << " ****\n";
-			cout << "*****";
-		}
-		cout << endl;
-	}
 
-	int n4;
-	cout << "Read: "; cin >> n4;
-	for (int i = 0; i < n4; i++)
-	{
-		for (int j = 0; j < n4; j++)
-		{
-			cout << "\n    /\\";
-			cout << "\n   /  \\";
-			cout << "\n  /    \\";
-			cout << "\n /      \\";
-			cout << "\n/        \\";
-			cout << " \n\\        /";
-			cout << "  \n \\      /";
-			cout << "   \n  \\    /";
-			cout << "    \n   \\  /";
-			cout << "     \n    \\/";
-		}
-		cout << endl;
-	}
+
+#endif // THOMBUS 
 }
