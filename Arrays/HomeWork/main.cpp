@@ -1,328 +1,197 @@
 #include <iostream>
 using namespace std;
+using std::cin;
+using std::cout;
+using std::endl;;
+
 #define tab "\t"
-//#define SQUARE1
-//#define TRIANGLE1
-//#define TRIANGLE2
-//#define TRIANGLE3
-//#define THOMBUS
-//#define THOMBUS2
-//#define THOMBUS3
-//#define PLUS1
-//#define CHESS
-//#define CHESS2 
-//#define PLUS2
-#define SQUARE2
-
-#define UPPER_LEFT_ANGLE (char)218
-#define UPPER_RIGHT_ANGLE (char)191
-#define DOWN_RIGHT_ANGLE (char)217
-#define DOWN_LEFT_ANGLE (char)192
-#define DOWN_RIGHT_ANGLE (char)217
-#define VERT_LINE (char)179
-#define HORIZ_LINE (char)196<<(char)196
-#define WHITE_BOX "\xDB\xDB" //(char)219<<(char)219
-#define BLACK_BOX "\x20\x20" //(char)32<< (char)32
-
-
-
+//#define ARR_LESSON
+//#define SHIFT_1
+//#define SHIFT_BUFFER
+//#define CONVERSION_DEC_TO_BIN
+#define CONVERSION_DEC_TO_HEX // вариант не доделан
 
 void main()
 
 {
 	setlocale(LC_ALL, "Russian");
+#ifdef ARR_LESSON
+	const int SIZE = 5;
+	int arr[SIZE] = { 3,5,8 };
+	//ввод элементов с клавиатуры
+	cout << "Введите значения элементов: ";
+	for (int i = 0; i < SIZE; i++)
+	{
+		cin >> arr[i];
+	}
+
+
+	//вывод массива на экран
+	for (int i = 0; i < SIZE; i++)
+	{
+		cout << arr[i] << tab;
+	}
+	cout << endl;
+
+	//вывод масива на экран в обратном порядке
+	for (int i = SIZE - 1; i >= 0; i--)
+	{
+		cout << arr[i] << tab;
+
+	}
+	cout << endl;
+
+	int sum = 0;
+	for (int i = 0; i < SIZE; i++)
+	{
+		sum = sum + arr[i];
+
+	}
+	cout << "Сумма элементов массива: " << sum;
+	cout << endl;
+
+	float sr_arifm = (float)sum / (SIZE);
+	cout << "Среднее арифметическое: " << sr_arifm;
+	cout << endl;
+
+	int max = arr[0];
+	int min = arr[0];
+
+	for (int i = 0; i < SIZE; i++)
+	{
+		if (arr[i] > max) max = arr[i];
+		if (arr[i] < min) min = arr[i];
+
+	}
+	cout << "Максимальный элемент: " << max;
+	cout << endl;
+	cout << "Минимальный  элемент: " << min;
+	cout << endl;
+#endif // ARR_LESSON
+
+#ifdef SHIFT_1
+	const int SIZE = 10;
+	int arr[SIZE] = { 1,2,3,4,5,6,7,8,9,10 };
 	int n;
-	int j;
-	int i;
-
-	cout << "Введите размер фигуры: "; cin >> n;
-
-#ifdef SQUARE1 
-
-	for (int i = 0;
-		i < n;
-		i++)
+	cout << "Введите сдвиг: "; cin >> n;
+	for (int i = 0; i < SIZE; i++)
 	{
-		for (int j = 0;
-			j < n;
-			j++)
+		cout << arr[i] << tab;
 
+	}
+	cout << endl;
+	for (int i = 0; i < SIZE; i++)
+	{
+		if (i + n + 1 > SIZE) cout << arr[i + n - SIZE] << tab;
+		else if (i + n < 0) cout << arr[i] << tab;
+		else cout << arr[i + n] << tab;
+
+	}
+	cout << endl;
+	cout << endl;
+	main();
+#endif // SHIFT_1
+
+#ifdef SHIFT_BUFFER
+	const int SIZE = 10;
+	int arr[SIZE] = { 1,2,3,4,5,6,7,8,9,10 };
+	int n;
+	cout << "Введите сдвиг: "; cin >> n;
+
+	//	Вывод исходного массива:
+	for (int i = 0; i < SIZE; i++)
+	{
+		cout << arr[i] << tab;
+	}
+	cout << endl;
+
+	/*//Сдвиг массива влево:
+	for (int j = 0; j < n; j++)
+	{
+		const int buffer = arr[0];
+		for (int i = 0; i < SIZE; i++)
 		{
-			cout << "*";
+			arr[i] = arr[i + 1];
 		}
-
-		cout << endl;
+		arr[SIZE - 1] = buffer;
 	}
-#endif // SQUARE1
-#ifdef TRIANGLE1 
-
-	for (int i = 0;
-		i < n;
-		i++)
+	//	Вывод сдвинутого массива влево:
+	for (int i = 0; i < SIZE; i++)
 	{
-		for (int j = 0;
-			j <= i;
-			j++)
+		cout << arr[i] << tab;
+	}
+	cout << endl;*/
 
-		{
-			cout << "*";
+	//	Сдвиг массива вправо:
+	for (int j = 0; j < n; j++)
+	{
+		const int buffer = arr[SIZE - 1];
+		for (int i = SIZE - 1; i > 0; i--)//Этот for должен проходить по массиву в обратном направлении, и в текущий элемент помещать предыдущий
+		{//
+			arr[i] = arr[i - 1];
 		}
-
-		cout << endl;
+		arr[0] = buffer;
 	}
-#endif // TRIANGLE1
-#ifdef TRIANGLE2 
 
-	for (int i = 0;
-		i < n;
-		i++)
+	//	Вывод сдвинутого массива вправо:
+	for (int i = 0; i < SIZE; i++)
 	{
-		for (int j = i;
-			j < n;
-			j++)
+		cout << arr[i] << tab;
+	}
+	cout << endl;
+#endif // SHIFT_BUFFER
 
+#ifdef CONVERSION_DEC_TO_BIN
+	const int SIZE = 8;
+	int arr[SIZE] = { 128,64,32,16,8,4,2,1 };
+	int dec;
+	cout << "Введите десятичное число: "; cin >> dec;
+
+	if (dec > 255) cout << "Ошибка! Повторите ввод!" << endl;
+	else
+	{
+
+		for (int i = 0; i < SIZE; i++)
 		{
-			cout << "*";
-		}
-
-		cout << endl;
-	}
-#endif // TRIANGLE2  
-#ifdef TRIANGLE3 
-
-
-	for (int i = 0;
-		i < n;
-		i++)
-	{
-		for (int j = 0; j < i; j++)
-		{
-			cout << " ";
-		}
-		for (int j = i;
-			j < n;
-			j++)
-		{
-			cout << "*";
-		}
-
-		cout << endl;
-	}
-#endif // TRIANGLE3 
-#ifdef TRIANGLE4 
-
-
-	for (int i = 0;
-		i < n;
-		i++)
-	{
-		for (int j = i; j < n; j++)
-		{
-			cout << " ";
-		}
-		for (int j = 0;
-			j <= i;
-			j++)
-		{
-			cout << "*";
-		}
-
-		cout << endl;
-	}
-#endif // TRIANGLE4 
-#ifdef THOMBUS 
-
-
-	for (int i = 0;
-		i < n;
-		i++)
-	{
-		for (int j = i; j < n; j++)
-		{
-			cout << " ";
-		}
-		for (int j = 0;
-			j < i;
-			j++)
-		{
-			cout << "* ";
-		}
-
-		cout << endl;
-	}
-
-	for (int i = 0;
-		i < n;
-		i++)
-	{
-		for (int j = 0; j < i; j++)
-		{
-			cout << " ";
-		}
-		for (int j = i;
-			j < n;
-			j++)
-		{
-			cout << "* ";
-		}
-
-		cout << endl;
-	}
-
-
-
-#endif // THOMBUS 
-#ifdef THOMBUS2 
-
-
-	for (int i = 0;
-		i < n;
-		i++)
-	{
-		for (int j = i; j < n; j++)	cout << " ";
-		cout << "/";
-		for (int j = 0; j < i; j++) cout << "  ";
-		cout << "\\";
-		cout << endl;
-	}
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j <= i; j++) cout << " ";
-		cout << "\\";
-		for (int j = i; j < n - 1; j++) cout << "  ";
-		cout << "/";
-		cout << endl;
-
-	}
-
-
-#endif // THOMBUS2 
-#ifdef PLUS1 
-	for (int i = 0;
-		i < n;
-		i++)
-	{
-		for (int j = 0;
-			j < n;
-			j++)
-
-		{
-			if (j & 1) cout << "+";
-			else cout << "-";
-
-		}
-
-		cout << endl;
-	}
-#endif // PLUS1
-#ifdef PLUS2 
-	for (int i = 0;
-		i < n;
-		i++)
-	{
-		for (int j = 0;
-			j < n;
-			j++)
-			if ((i + j) % 2 == 0)cout << "+ ";
-			else cout << "- ";
-
-		cout << endl;
-
-	}
-
-
-#endif // PLUS2
-#ifdef THOMBUS3 
-
-
-	for (int i = 0;
-		i < n;
-		i++)
-	{
-		for (int j = i; j < n; j++)	cout << " ";
-		cout << "/";
-		for (int j = 0; j < i * 2; j++) cout << " ";
-		cout << "\\";
-		cout << endl;
-	}
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j <= i; j++) cout << " ";
-		cout << "\\";
-		for (int j = 0; j < (n - 1 - i) * 2; j++) cout << " ";
-		cout << "/";
-		cout << endl;
-
-	}
-
-
-#endif // THOMBUS3 
-#ifdef CHESS 
-	for (int i = 0;
-		i < n;
-		i++)
-	{
-		for (int j = 0;
-			j < n;
-			j++)
-		{
-			//if ((i + j) % 2 == 0)cout << "+ ";
-			//(i + j) % 2 == 0 ? cout << "+ " : cout << "- ";
-			cout << ((i + j) % 2 == 0 ? "+ " : "- ");
-		}
-		cout << endl;
-
-	}
-
-
-#endif // CHESS
-#ifdef CHESS2 
-	setlocale(LC_ALL, "C");
-	/*for (int i = 0;i < 256;i++)
-	{
-		cout << i << "\t" << (char)i << endl;
-
-	}*/
-	n++;
-	for (int i = 0; i <= n; i++)
-	{
-		for (int j = 0; j <= n; j++)
-		{
-			if (i == 0 && j == 0) cout << UPPER_LEFT_ANGLE;
-			else if (i == 0 && j == n) cout << UPPER_RIGHT_ANGLE;
-			else if (i == n && j == 0)cout << DOWN_LEFT_ANGLE;
-			else if (i == n && j == n)cout << DOWN_RIGHT_ANGLE;
-			else if (i == 0 || i == n)cout << HORIZ_LINE;
-			else if (j == 0 || j == n)cout << VERT_LINE;
-			else
+			if (dec >= arr[i])
 			{
-				/*if ((i + j) %2 == 0) cout << WHITE_BOX;
-				else cout << "  ";*/
-				cout << ((i + j) % 2 == 0 ? WHITE_BOX : BLACK_BOX);
+				dec = dec - arr[i];
+				arr[i] = 1;
 			}
+			else arr[i] = 0;
+
+		}
+
+		cout << endl;
+		cout << "Представление в двоичной форме: ";
+		for (int i = 0; i < SIZE; i++)
+		{
+			cout << arr[i];
 		}
 		cout << endl;
 	}
-#endif // CHESS2
-#ifdef SQUARE2 
-	int l;
-	int k;
-	for (int i = 0; i < n; i++)
+#endif // CONVERSION_DEC_TO_BIN
+
+#ifdef CONVERSION_DEC_TO_HEX
+	const int SIZE_1 = 16;
+	int arr1[SIZE_1] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+	int dec2, dec3;
+
+	cout << "Введите десятичное число: "; cin >> dec2;
+
+	for (int i = SIZE_1 - 1; i >= 0; i--)
 	{
-		l = 0;
-		while (l < n)
-		{
-			for (int j = 0; j < n; j++)
-			{
-				for (int k = 0; k < n; k++)
-				{
-					cout << ((i + j) % 2 == 0 ? "* " : "  ");
-				}
-			}
-			cout << endl;
-			l++;
-		}
+		dec3 = dec2 / 16;
+		arr1[i] = dec2 - (dec3 * 16);
+		dec2 = dec3;
 	}
 
-#endif // SQUARE2
+	cout << endl;
+	cout << "Представление в 16 - ричной форме: ";
+	for (int i = 0; i < SIZE_1; i++)
+	{
+		cout << arr1[i];
+	}
+	cout << endl;
+#endif // CONVERSION_DEC_TO_HEX
 }
