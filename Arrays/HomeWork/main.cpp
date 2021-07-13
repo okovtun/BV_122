@@ -1,197 +1,82 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-using std::cin;
-using std::cout;
-using std::endl;;
 
-#define tab "\t"
-//#define ARR_LESSON
-//#define SHIFT_1
-//#define SHIFT_BUFFER
-//#define CONVERSION_DEC_TO_BIN
-#define CONVERSION_DEC_TO_HEX // вариант не доделан
+//#define RANDARRAY	//a two-dimensional array with random values
+#define ARRAYSHOWMANY	//a one-dimensional array from 0 to 10 with the output of the number of repetitions for repeating numbers
+
+enum Color
+{
+	console_black = 0x00,
+	console_white = 0xFF,//0xFFFFFF00,
+	console_red = 0xCC,//0xFF000000,
+	console_green = 0xAA,//0x00FF0000,
+	console_blue = 0x99,//0x0000FF00
+	default_console_color = 7,
+
+	black = 0x00000000,
+	red = 0x000000FF,
+	green = 0x0000AA00,
+	yellow = 0x0000FFFF,
+	blue = 0x00FF0000,
+	grey = 0x00555555,
+	white = 0x00FFFFFF,
+};
+
+enum struct Symbols:char
+{
+	upper_left_angle = 217,
+
+};
 
 void main()
-
 {
-	setlocale(LC_ALL, "Russian");
-#ifdef ARR_LESSON
-	const int SIZE = 5;
-	int arr[SIZE] = { 3,5,8 };
-	//ввод элементов с клавиатуры
-	cout << "Введите значения элементов: ";
-	for (int i = 0; i < SIZE; i++)
+	setlocale(LC_ALL, "rus");
+	cout << green << endl;
+	cout << Symbols::upper_left_angle << endl;
+#ifdef RANDARRAY
+
+	const int n = 5;	//line of arrow
+	const int k = 2;	//number of line
+
+	int arr[k][n];
+	for (int i = 0; i < n; i++)
 	{
-		cin >> arr[i];
+		arr[0][i] = rand();
+		arr[1][i] = arr[0][i] % 100;
 	}
-
-
-	//вывод массива на экран
-	for (int i = 0; i < SIZE; i++)
+	for (int i = 0; i < n; i++)
 	{
-		cout << arr[i] << tab;
+		cout << arr[0][i] << "-" << arr[1][i] << "  ";
+	} cout << endl;
+#endif // RANDARRAY
+
+#ifdef ARRAYSHOWMANY
+	//srand(time(0));	//un-comment to check different options (variants)
+
+	const int S = 10;
+	int arr[S] = {};
+	int n = 1;
+	for (int i = 0; i < S; i++)	//filling the array with random numbers
+	{
+		arr[i] = rand() % 10;
 	}
+	for (int i = 0; i < S; i++)	//sortirovochka
+		for (int j = i + 1; j < S; j++)
+			if (arr[i] > arr[j]) swap(arr[i], arr[j]);
+	for (int i = 0; i < S; cout << arr[i++] << "\t");	//just for visual, what numbers are in the array
 	cout << endl;
-
-	//вывод масива на экран в обратном порядке
-	for (int i = SIZE - 1; i >= 0; i--)
+	for (int i = 0; i < S; i++)
 	{
-		cout << arr[i] << tab;
-
-	}
-	cout << endl;
-
-	int sum = 0;
-	for (int i = 0; i < SIZE; i++)
-	{
-		sum = sum + arr[i];
-
-	}
-	cout << "Сумма элементов массива: " << sum;
-	cout << endl;
-
-	float sr_arifm = (float)sum / (SIZE);
-	cout << "Среднее арифметическое: " << sr_arifm;
-	cout << endl;
-
-	int max = arr[0];
-	int min = arr[0];
-
-	for (int i = 0; i < SIZE; i++)
-	{
-		if (arr[i] > max) max = arr[i];
-		if (arr[i] < min) min = arr[i];
-
-	}
-	cout << "Максимальный элемент: " << max;
-	cout << endl;
-	cout << "Минимальный  элемент: " << min;
-	cout << endl;
-#endif // ARR_LESSON
-
-#ifdef SHIFT_1
-	const int SIZE = 10;
-	int arr[SIZE] = { 1,2,3,4,5,6,7,8,9,10 };
-	int n;
-	cout << "Введите сдвиг: "; cin >> n;
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << arr[i] << tab;
-
-	}
-	cout << endl;
-	for (int i = 0; i < SIZE; i++)
-	{
-		if (i + n + 1 > SIZE) cout << arr[i + n - SIZE] << tab;
-		else if (i + n < 0) cout << arr[i] << tab;
-		else cout << arr[i + n] << tab;
-
-	}
-	cout << endl;
-	cout << endl;
-	main();
-#endif // SHIFT_1
-
-#ifdef SHIFT_BUFFER
-	const int SIZE = 10;
-	int arr[SIZE] = { 1,2,3,4,5,6,7,8,9,10 };
-	int n;
-	cout << "Введите сдвиг: "; cin >> n;
-
-	//	Вывод исходного массива:
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-
-	/*//Сдвиг массива влево:
-	for (int j = 0; j < n; j++)
-	{
-		const int buffer = arr[0];
-		for (int i = 0; i < SIZE; i++)
+		if (arr[i] == arr[i + 1])
 		{
-			arr[i] = arr[i + 1];
+			cout << "The number - " << arr[i];
+			while (arr[i++] == arr[i + 1]) n += 1;
+			cout << " is repeated " << n << " times" << endl; n = 1;
 		}
-		arr[SIZE - 1] = buffer;
 	}
-	//	Вывод сдвинутого массива влево:
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;*/
+#endif // ARRAYSHOWMANY
+	char m;
+	enum Colours { RED=100, YELLOW, BROUN, };
+	cout << Colours::BROUN << endl;;
 
-	//	Сдвиг массива вправо:
-	for (int j = 0; j < n; j++)
-	{
-		const int buffer = arr[SIZE - 1];
-		for (int i = SIZE - 1; i > 0; i--)//Этот for должен проходить по массиву в обратном направлении, и в текущий элемент помещать предыдущий
-		{//
-			arr[i] = arr[i - 1];
-		}
-		arr[0] = buffer;
-	}
-
-	//	Вывод сдвинутого массива вправо:
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-#endif // SHIFT_BUFFER
-
-#ifdef CONVERSION_DEC_TO_BIN
-	const int SIZE = 8;
-	int arr[SIZE] = { 128,64,32,16,8,4,2,1 };
-	int dec;
-	cout << "Введите десятичное число: "; cin >> dec;
-
-	if (dec > 255) cout << "Ошибка! Повторите ввод!" << endl;
-	else
-	{
-
-		for (int i = 0; i < SIZE; i++)
-		{
-			if (dec >= arr[i])
-			{
-				dec = dec - arr[i];
-				arr[i] = 1;
-			}
-			else arr[i] = 0;
-
-		}
-
-		cout << endl;
-		cout << "Представление в двоичной форме: ";
-		for (int i = 0; i < SIZE; i++)
-		{
-			cout << arr[i];
-		}
-		cout << endl;
-	}
-#endif // CONVERSION_DEC_TO_BIN
-
-#ifdef CONVERSION_DEC_TO_HEX
-	const int SIZE_1 = 16;
-	int arr1[SIZE_1] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
-	int dec2, dec3;
-
-	cout << "Введите десятичное число: "; cin >> dec2;
-
-	for (int i = SIZE_1 - 1; i >= 0; i--)
-	{
-		dec3 = dec2 / 16;
-		arr1[i] = dec2 - (dec3 * 16);
-		dec2 = dec3;
-	}
-
-	cout << endl;
-	cout << "Представление в 16 - ричной форме: ";
-	for (int i = 0; i < SIZE_1; i++)
-	{
-		cout << arr1[i];
-	}
-	cout << endl;
-#endif // CONVERSION_DEC_TO_HEX
 }
