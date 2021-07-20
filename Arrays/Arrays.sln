@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UniqueRandom", "UniqueRando
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Search", "Search\Search.vcxproj", "{6760732D-068E-4FF2-B05E-495C13604D01}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arrays2D", "Arrays2D\Arrays2D.vcxproj", "{BDA8CC4F-4477-4685-B89F-18B534B3D0B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{6760732D-068E-4FF2-B05E-495C13604D01}.Release|x64.Build.0 = Release|x64
 		{6760732D-068E-4FF2-B05E-495C13604D01}.Release|x86.ActiveCfg = Release|Win32
 		{6760732D-068E-4FF2-B05E-495C13604D01}.Release|x86.Build.0 = Release|Win32
+		{BDA8CC4F-4477-4685-B89F-18B534B3D0B8}.Debug|x64.ActiveCfg = Debug|x64
+		{BDA8CC4F-4477-4685-B89F-18B534B3D0B8}.Debug|x64.Build.0 = Debug|x64
+		{BDA8CC4F-4477-4685-B89F-18B534B3D0B8}.Debug|x86.ActiveCfg = Debug|Win32
+		{BDA8CC4F-4477-4685-B89F-18B534B3D0B8}.Debug|x86.Build.0 = Debug|Win32
+		{BDA8CC4F-4477-4685-B89F-18B534B3D0B8}.Release|x64.ActiveCfg = Release|x64
+		{BDA8CC4F-4477-4685-B89F-18B534B3D0B8}.Release|x64.Build.0 = Release|x64
+		{BDA8CC4F-4477-4685-B89F-18B534B3D0B8}.Release|x86.ActiveCfg = Release|Win32
+		{BDA8CC4F-4477-4685-B89F-18B534B3D0B8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
