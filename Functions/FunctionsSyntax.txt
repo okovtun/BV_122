@@ -1,0 +1,22 @@
+type name(parameters)	//Function header
+{
+	//Function body:
+	...
+	group-of-statements;
+	...
+}
+type - тип возвращаемого значения.
+void - пустота
+
+return value;//NOT void
+return;	//void
+
+identifiers
+
+Function doesn't take N arguments
+Too few arguments in function call - 
+Too many arguments in function call - 
+
+Unresolved externals
+(LNK) Unresolved external symbol found
+(Linker)
