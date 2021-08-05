@@ -7,6 +7,11 @@ https://www.youtube.com/watch?v=htkSiXnrqHQ&list=PLeqyOOqxeiIMc8VmOKgzH2KDPzAhl5
 ///////////////////////////////////////////////////////////////////////////
 
 TODO:
+В ветке separated перегрузить функции Sort(), Sum(), Avg(), minValueIn() и 
+maxValueIn() для двумерных массивов типа short, float, double и char.
+В MyStat прислать ссылку на папку с проектом.
+
+DONE:
 Перегрузить все имеющиеся функции для массивов типа short, float, double и char;
 
 DONE:
