@@ -1,9 +1,21 @@
 ﻿https://github.com/okovtun/BV_122.git
 https://www.youtube.com/watch?v=htkSiXnrqHQ&list=PLeqyOOqxeiIMc8VmOKgzH2KDPzAhl5Gc3&index=1
 
+Book:
+https://drive.google.com/drive/u/0/folders/1mIhAKMp5-Jpy6s5X8u924tRCXFEdHE_z
+
+TOREAD:
+http://cplusplus.com/doc/tutorial/pointers/
+
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////				  Recursion				///////////////////
 ///////////////////////////////////////////////////////////////////////////
+
+TODO:
+Оптимизировать фунцию Fibonacci;
+	/*a = b;
+	b = c;
+	c = a + b;*/
 
 TODO:
 1. Написать рекурсивную функцию Factorial, которая принимает число, и возвращает факториал этого числа;
