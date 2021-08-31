@@ -21,7 +21,7 @@ void main()
 	pb = &b;
 	//(int)=(int*)
 		//int - int
-		//int* - Указатель на int
+		//int* - Указатель на int (Pointer to int)
 		//double - double
 		//double* - Указатель на double
 		//char - char
