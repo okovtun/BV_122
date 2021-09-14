@@ -8,6 +8,7 @@ void Print(int arr[], const unsigned int n);
 //CamelCaseStyle: BigCamel, smallCamel
 //snake_case_style
 int* push_back(int arr[], int& n, int value);
+int* pop_back(int arr[], int& n);
 
 void main()
 {
@@ -25,6 +26,7 @@ void main()
 	Print(arr, n);
 	//buffer[2] = 1024;
 	//buffer = nullptr;//delete[] buffer;
+	arr = pop_back(arr, n);
 	Print(arr, n);
 	delete[] arr;
 }
@@ -69,4 +71,12 @@ int* push_back(int arr[], int& n, int value)
 
 	//////////////////////////////////////////////////////////////////
 	return arr;
+}
+
+int* pop_back(int arr[], int& n)
+{
+	int* buffer = new int[--n];
+	for (int i = 0; i < n; i++)buffer[i] = arr[i];
+	delete[] arr;
+	return buffer;
 }
