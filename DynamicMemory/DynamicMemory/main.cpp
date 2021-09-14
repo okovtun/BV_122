@@ -1,4 +1,5 @@
-﻿#include<iostream>
+﻿//ArrayByPointerInDynamicMemory
+#include<iostream>
 using std::cin;
 using std::cout;
 using std::endl;
@@ -7,7 +8,8 @@ void FillRand(int arr[], const unsigned int n);
 void Print(int arr[], const unsigned int n);
 //CamelCaseStyle: BigCamel, smallCamel
 //snake_case_style
-int* push_back(int arr[], int& n, int value);
+
+void push_back(int** arr, int& n, int value);//Принимаем указатель на массив по указателью
 int* pop_back(int arr[], int& n);
 
 void main()
@@ -21,7 +23,7 @@ void main()
 	int value;
 	cout << "Введите добавлчемое значение: "; cin >> value;
 	
-	arr = push_back(arr, n, value);
+	push_back(&arr, n, value);
 	//n++;
 	Print(arr, n);
 	//buffer[2] = 1024;
@@ -47,8 +49,9 @@ void Print(int arr[], const unsigned int n)
 	cout << endl;
 }
 
-int* push_back(int arr[], int& n, int value)
+void push_back(int** arr, int& n, int value)
 {
+	cout << typeid(arr).name() << endl;
 	//////////////////////////////////////////////////////////////////
 	///////////////		Добавление элемента в массив	//////////////
 	//////////////////////////////////////////////////////////////////
@@ -58,19 +61,18 @@ int* push_back(int arr[], int& n, int value)
 	//2) Копируем исходный массив в буферный:
 	for (int i = 0; i < n; i++)
 	{
-		buffer[i] = arr[i];
+		buffer[i] = (*arr)[i];
 	}
 	//3) Удаляем исходный массив:
-	delete[] arr;
+	delete[] *arr;
 	//4) Подменяем исходный массив новым (буферным) массивом, засчет подмены адреса:
-	arr = buffer;
+	*arr = buffer;
 	//5) Только после всех этих действий можно добавить значение в конец массива
-	arr[n] = value;
+	(*arr)[n] = value;
 	//6) После добавления элемента в массив, количество его элементов увеличивается на 1:
 	n++;
 
 	//////////////////////////////////////////////////////////////////
-	return arr;
 }
 
 int* pop_back(int arr[], int& n)
