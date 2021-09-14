@@ -10,9 +10,13 @@ void Print(int arr[], const unsigned int n);
 int* push_back(int arr[], int& n, int value);
 int* pop_back(int arr[], int& n);
 
+//#define DYNAMIC_MEMORY_1
+#define DYNAMIC_MEMORY_2
+
 void main()
 {
 	setlocale(LC_ALL, "");
+#ifdef DYNAMIC_MEMORY_1
 	int n;
 	cout << "Введите размер массива: "; cin >> n;
 	int* arr = new int[n];
@@ -20,7 +24,7 @@ void main()
 	Print(arr, n);
 	int value;
 	cout << "Введите добавлчемое значение: "; cin >> value;
-	
+
 	arr = push_back(arr, n, value);
 	//n++;
 	Print(arr, n);
@@ -28,6 +32,25 @@ void main()
 	//buffer = nullptr;//delete[] buffer;
 	arr = pop_back(arr, n);
 	Print(arr, n);
+	delete[] arr;
+#endif // DYNAMIC_MEMORY_1
+
+	int rows, cols;
+	cout << "Введите количество строк: "; cin >> rows;
+	cout << "Введите количество столбцов: "; cin >> cols;
+	int** arr = new int*[rows];
+	for (int i = 0; i < rows; i++)
+	{
+		arr[i] = new int[cols];
+	}
+
+	//Обращаться к элементам двумерного динамического массива можно 
+	//так же, как и к элементам двумерного статического массива.
+
+	for (int i = 0; i < rows; i++)
+	{
+		delete[] arr[i];
+	}
 	delete[] arr;
 }
 
