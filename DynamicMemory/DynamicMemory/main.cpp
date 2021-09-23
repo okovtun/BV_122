@@ -3,6 +3,9 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+int** allocate(const unsigned int rows, const unsigned int cols);
+void  clear(int** arr, const unsigned int rows);
+
 void FillRand(int arr[], const unsigned int n);
 void FillRand(int** arr, const unsigned int rows, const unsigned int cols);
 void Print(int arr[], const unsigned int n);
@@ -11,6 +14,8 @@ void Print(int** arr, const unsigned int rows, const unsigned int cols);
 //snake_case_style
 int* push_back(int arr[], int& n, int value);
 int* pop_back(int arr[], int& n);
+
+int** push_row_back(int** arr, unsigned int& rows, const unsigned int cols);
 
 //#define DYNAMIC_MEMORY_1
 #define DYNAMIC_MEMORY_2
@@ -37,10 +42,35 @@ void main()
 	delete[] arr;
 #endif // DYNAMIC_MEMORY_1
 
-	int rows;
-	int cols;
+	unsigned int rows;
+	unsigned int cols;
 	cout << "Введите количество строк: "; cin >> rows;
 	cout << "Введите количество элементов строки: "; cin >> cols;
+	int** arr = allocate(rows, cols);
+
+	//////////////////////////////////////////////////////////////////////////////
+	//////		ОБРАЩЕНИЕ К ЭЛЕМЕНТАМ ДВУМЕРНОГО ДИНАМИЧЕСКОГО МАССИВА:		//////
+	//////////////////////////////////////////////////////////////////////////////
+	FillRand(arr, rows, cols);
+	Print(arr, rows, cols);
+	cout << "\n------------------------------------------------------------\n";
+
+	arr = push_row_back(arr, rows, cols);
+
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			cout << *(*(arr + i) + j) << "\t";
+		}
+		cout << endl;
+	}
+
+	clear(arr, rows);
+}
+
+int** allocate(const unsigned int rows, const unsigned int cols)
+{
 	///////////////////////////////////////////////////////////////////////////////
 	/////////////	ОБЪЯВЛЕНИЕ ДВУМЕРНОГО ДИНАМИЧЕСКОГО МАССИВА:	///////////////
 	///////////////////////////////////////////////////////////////////////////////
@@ -51,13 +81,10 @@ void main()
 	{
 		arr[i] = new int[cols] {};
 	}
-
-	//////////////////////////////////////////////////////////////////////////////
-	//////		ОБРАЩЕНИЕ К ЭЛЕМЕНТАМ ДВУМЕРНОГО ДИНАМИЧЕСКОГО МАССИВА:		//////
-	//////////////////////////////////////////////////////////////////////////////
-	FillRand(arr, rows, cols);
-	Print(arr, rows, cols);
-
+	return arr;
+}
+void  clear(int** arr, const unsigned int rows)
+{
 	///////////////////////////////////////////////////////////////////////////////
 	/////////////	 УДАЛЕНИЕ ДВУМЕРНОГО ДИНАМИЧЕСКОГО МАССИВА:		///////////////
 	///////////////////////////////////////////////////////////////////////////////
@@ -139,4 +166,25 @@ int* pop_back(int arr[], int& n)
 	for (int i = 0; i < n; i++)buffer[i] = arr[i];
 	delete[] arr;
 	return buffer;
+}
+
+int** push_row_back(int** arr, unsigned int& rows, const unsigned int cols)
+{
+	//1) Создаем буферный массив указателей:
+	int** buffer = new int*[rows + 1]{};
+	//2) Копируем адреса строк в буферный массив указателей:
+	for (int i = 0; i < rows; i++)
+	{
+		buffer[i] = arr[i];
+	}
+	//3) Удаляем исходный массив указателей:
+	delete[] arr;
+	//4) Подменяем исходный массив буферным:
+	arr = buffer;
+	//5) Добавляем в массив новую строку:
+	arr[rows] = new int[cols] {};
+	//6) Увеличиваем количество строк:
+	rows++;
+	//7) Возвращаем новый массив на место вызова:
+	return arr;
 }
