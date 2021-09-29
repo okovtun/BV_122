@@ -6,8 +6,8 @@ using std::endl;
 int** allocate(const unsigned int rows, const unsigned int cols);
 void  clear(int** arr, const unsigned int rows);
 
-void FillRand(int arr[], const unsigned int n);
-void FillRand(int** arr, const unsigned int rows, const unsigned int cols);
+void FillRand(int arr[], const unsigned int n, int minRand = 0, int maxValue = 100);
+void FillRand(int** arr, const unsigned int rows, const unsigned int cols, int minRand = 0, int maxRand = 100);
 void Print(int arr[], const unsigned int n);
 void Print(int** arr, const unsigned int rows, const unsigned int cols);
 //CamelCaseStyle: BigCamel, smallCamel
@@ -16,6 +16,7 @@ int* push_back(int arr[], int& n, int value);
 int* pop_back(int arr[], int& n);
 
 int** push_row_back(int** arr, unsigned int& rows, const unsigned int cols);
+void  push_col_back(int** arr, const unsigned int rows, unsigned int& cols);
 
 //#define DYNAMIC_MEMORY_1
 #define DYNAMIC_MEMORY_2
@@ -56,6 +57,7 @@ void main()
 	cout << "\n------------------------------------------------------------\n";
 
 	arr = push_row_back(arr, rows, cols);
+	FillRand(arr[rows - 1], cols, 200, 300);
 
 	for (int i = 0; i < rows; i++)
 	{
@@ -65,6 +67,10 @@ void main()
 		}
 		cout << endl;
 	}
+
+	push_col_back(arr, rows, cols);
+	for (int i = 0; i < rows; i++)arr[i][cols - 1] = rand();
+	Print(arr, rows, cols);
 
 	clear(arr, rows);
 }
@@ -97,20 +103,20 @@ void  clear(int** arr, const unsigned int rows)
 	delete[] arr;
 }
 
-void FillRand(int arr[], const unsigned int n)
+void FillRand(int arr[], const unsigned int n, int minRand, int maxRand)
 {
 	for (int i = 0; i < n; i++)
 	{
-		arr[i] = rand() % 100;
+		arr[i] = rand() % (maxRand - minRand) + minRand;
 	}
 }
-void FillRand(int** arr, const unsigned int rows, const unsigned int cols)
+void FillRand(int** arr, const unsigned int rows, const unsigned int cols, int minRand, int maxRand)
 {
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < cols; j++)
 		{
-			arr[i][j] = rand() % 100;
+			arr[i][j] = rand() % (maxRand - minRand) + minRand;
 		}
 	}
 }
@@ -187,4 +193,23 @@ int** push_row_back(int** arr, unsigned int& rows, const unsigned int cols)
 	rows++;
 	//7) Возвращаем новый массив на место вызова:
 	return arr;
+}
+void  push_col_back(int** arr, const unsigned int rows, unsigned int& cols)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		//1) Создаем буферную строку, размером на 1 элемент больше:
+		int* buffer = new int[cols + 1]{};
+		//2) Копируем исходную строку в буферную:
+		for (int j = 0; j < cols; j++)
+		{
+			buffer[j] = arr[i][j];
+		}
+		//3) Удаляем исходную строку
+		delete[] arr[i];
+		arr[i] = buffer;
+	}
+	//4) После того, как в каждой строке добавилось по элементу, 
+	//   количество столбцов увеличилось на 1:
+	cols++;
 }
