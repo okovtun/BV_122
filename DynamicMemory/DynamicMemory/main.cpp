@@ -41,7 +41,7 @@ void main()
 	arr = pop_back(arr, n);
 	Print(arr, n);
 	delete[] arr;
-#endif // DYNAMIC_MEMORY_1
+#endif //DYNAMIC_MEMORY_1
 
 	unsigned int rows;
 	unsigned int cols;
