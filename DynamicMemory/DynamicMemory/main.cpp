@@ -1,4 +1,6 @@
-﻿#include<iostream>	//#... Директива языка C
+﻿//DynamicTemplatedOptimise
+
+#include<iostream>	//#... Директива языка C
 using std::cin;		//using - Директива языка C++
 using std::cout;
 using std::endl;
@@ -17,8 +19,8 @@ template<typename T>void Print(T arr[], const unsigned int n);
 template<typename T>void Print(T** arr, const unsigned int rows, const unsigned int cols);
 //CamelCaseStyle: BigCamel, smallCamel
 //snake_case_style
-template<typename T>int* push_back(T arr[], int& n, T value);
-template<typename T>int* pop_back(T arr[], int& n);
+template<typename T>T* push_back(T* arr, unsigned int & n, T value);
+template<typename T>T* pop_back(T arr[], int& n);
 
 template<typename T>T** push_row_back(T** arr, unsigned int& rows, const unsigned int cols);
 template<typename T>void  push_col_back(T** arr, const unsigned int rows, unsigned int& cols);
@@ -216,14 +218,14 @@ template<typename T>void Print(T** arr, const unsigned int rows, const unsigned 
 	}
 }
 
-template<typename T>T* push_back(T arr[], int& n, T value)
+template<typename T>T* push_back(T* arr, unsigned int & n, T value)
 {
 	//////////////////////////////////////////////////////////////////
 	///////////////		Добавление элемента в массив	//////////////
 	//////////////////////////////////////////////////////////////////
 
 	//1) Создаем буферный массив нужного размера:
-	int* buffer = new int[n + 1];
+	T* buffer = new T[n + 1];
 	//2) Копируем исходный массив в буферный:
 	for (int i = 0; i < n; i++)
 	{
@@ -252,6 +254,7 @@ template<typename T>T* pop_back(T arr[], int& n)
 
 template<typename T>T** push_row_back(T** arr, unsigned int& rows, const unsigned int cols)
 {
+#ifdef OLD
 	//1) Создаем буферный массив указателей:
 	T** buffer = new T*[rows + 1]{};
 	//2) Копируем адреса строк в буферный массив указателей:
@@ -269,11 +272,15 @@ template<typename T>T** push_row_back(T** arr, unsigned int& rows, const unsigne
 	rows++;
 	//7) Возвращаем новый массив на место вызова:
 	return arr;
+#endif // OLD
+
+	return push_back(arr, rows, new T[cols]{});
 }
 template<typename T>void  push_col_back(T** arr, const unsigned int rows, unsigned int& cols)
 {
 	for (int i = 0; i < rows; i++)
 	{
+#ifdef OLD
 		//1) Создаем буферную строку, размером на 1 элемент больше:
 		T* buffer = new T[cols + 1]{};
 		//2) Копируем исходную строку в буферную:
@@ -284,6 +291,10 @@ template<typename T>void  push_col_back(T** arr, const unsigned int rows, unsign
 		//3) Удаляем исходную строку
 		delete[] arr[i];
 		arr[i] = buffer;
+#endif // OLD
+
+		arr[i] = push_back(arr[i], cols, T());	//T() - значение по умолчанию для типа T.
+		cols--;
 	}
 	//4) После того, как в каждой строке добавилось по элементу, 
 	//   количество столбцов увеличилось на 1:
