@@ -50,6 +50,7 @@ void main()
 	delete[] arr;
 #endif // DYNAMIC_MEMORY_1
 
+#ifdef USER_TYPE
 	int user_type;
 	cout << "Выберите тип данных:\n";
 	cout << "i - int\n";
@@ -70,12 +71,14 @@ void main()
 	case 'd': using DataType = double; break;
 	case 'c': using DataType = char; break;
 	}
+#endif // USER_TYPE
+
 
 	unsigned int rows;
 	unsigned int cols;
 	cout << "Введите количество строк: "; cin >> rows;
 	cout << "Введите количество элементов строки: "; cin >> cols;
-	//typedef double DataType;
+	typedef double DataType;
 	DataType** arr = allocate<DataType>(rows, cols);
 
 	//////////////////////////////////////////////////////////////////////////////
